@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddSingleton<IRoleRepository,RoleRepository>();
-builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IUserRepository,UserRepository>();
+builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddControllersWithViews();
 

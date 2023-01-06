@@ -2,6 +2,8 @@
 using Employee_info.Models.Domain;
 using Dapper;
 using System.Data;
+
+
 namespace Employee_info.Repositiries
 {
     public class RoleRepository : IRoleRepository
@@ -18,9 +20,11 @@ namespace Employee_info.Repositiries
 
             using (var connection = _context.CreateConnection())
             {
-                var roles = await connection.QueryAsync<Role>(query, new {});
-                return roles.ToList();
+                var list = await connection.QueryAsync<Role>(query, new {});
+                return list.ToList();
             }
         }
+
+       
     }
 }

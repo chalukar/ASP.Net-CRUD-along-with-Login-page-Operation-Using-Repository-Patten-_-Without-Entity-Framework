@@ -5,5 +5,6 @@ namespace Employee_info.Repositiries
     public interface IRoleRepository
     {
         Task<IEnumerable<Role>> GetRoles();
+        
     }
 }
