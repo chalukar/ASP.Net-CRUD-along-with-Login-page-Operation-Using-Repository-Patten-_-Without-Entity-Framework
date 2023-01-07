@@ -108,16 +108,6 @@ namespace Employee_info.Controllers
                 }
             }
 
-
-            //var user = await _userRepository.GetUser(login.UserName);
-            //if (user != null) { 
-
-            //    if(DecryptPassword(user.Password) == login.Password)
-            //    {
-            //        return RedirectToAction("Index", "Employees");
-            //    }
-            //}
-
             return View();
         }
         public async Task<ActionResult> LogOut()

@@ -17,11 +17,12 @@ CREATE TABLE [dbo].[City](
 
 CREATE TABLE [dbo].[Employee](
 	[Id] [nvarchar](20) NOT NULL,
-	[UserId] [Int] FOREIGN KEY REFERENCES [User](Id),
-	[CityId] [Int] FOREIGN KEY REFERENCES [City](Id),
+	[UserName] [nvarchar](10) NOT NULL,
+	[CityId] [Int] FOREIGN KEY REFERENCES [City](Id) NOT NULL,
 	[Age] [int] NOT NULL,
 	[Sex] [char](1) NOT NULL,
 	[JoinedDate] [datetime] NOT NULL,
 	[ContactNo] [nvarchar](10) NOT NULL,
 	)
 
+--Drop Table Employee
