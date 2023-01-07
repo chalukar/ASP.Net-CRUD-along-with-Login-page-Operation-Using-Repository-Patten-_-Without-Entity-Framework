@@ -1,3 +1,6 @@
+Create Database EmpDB
+use EmpDB
+
 CREATE TABLE [dbo].[Role](
 	[ID] [int] Primary Key IDENTITY(1,1) NOT NULL,
 	[RoleName] [nvarchar](50) NOT NULL,
