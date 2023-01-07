@@ -3,7 +3,7 @@
     public class AddEmployeeDTO
     {
         public string Id { get; set; }
-        public int UserId { get; set; }
+        public string UserName { get; set; }
 
         public int CityId { get; set; }
 

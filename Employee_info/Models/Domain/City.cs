@@ -6,7 +6,6 @@ namespace Employee_info.Models.Domain
     {
         
         public int Id { get; set; }
-        public string CityCode { get; set; }
-        public string Cityname { get; set; }
+        public string CityName { get; set; }
     }
 }

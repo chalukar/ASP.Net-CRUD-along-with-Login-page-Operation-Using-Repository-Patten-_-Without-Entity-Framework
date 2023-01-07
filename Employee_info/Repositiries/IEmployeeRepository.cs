@@ -6,6 +6,9 @@ namespace Employee_info.Repositiries
     {
         Task<IEnumerable<Employee>> GetEmplyee();
 
-        Task RegisterUser(Employee employee);
+        Task<IEnumerable<Employee>> GetEmployeeID();
+        //Task<Employee> GetEmployeeID();
+
+        Task AddEmployee(Employee employee);
     }
 }

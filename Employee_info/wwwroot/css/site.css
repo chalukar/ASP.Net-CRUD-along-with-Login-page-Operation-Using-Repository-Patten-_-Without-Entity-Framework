@@ -19,5 +19,9 @@ html {
 
 body {
   margin-bottom: 60px;
-  font-family:"Roboto",sans-serif;
+  font-family:sans-serif;
+}
+
+.form-control {
+    margin-bottom: 10px;
 }

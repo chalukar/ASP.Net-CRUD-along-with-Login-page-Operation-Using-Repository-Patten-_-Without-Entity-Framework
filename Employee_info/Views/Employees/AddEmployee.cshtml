@@ -1,0 +1,91 @@
+﻿@model Employee_info.Models.DTO.AddEmployeeDTO
+
+@{
+    ViewData["Title"] = "AddEmployee";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<h1>AddEmployee</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <p>@ViewBag.UserName</p>
+        <form asp-action="AddEmployee">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input type="text" asp-for="Id" id="Id" name="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input type="text" asp-for="UserName" class="form-control" value="@ViewBag.UserName" readonly/>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CityId" class="control-label"></label>
+                <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityId"> <option>Please select the City</option></select>
+                <span asp-validation-for="CityId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sex" class="control-label"></label>
+                <input asp-for="Sex" class="form-control" />
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JoinedDate" class="control-label"></label>
+                <input asp-for="JoinedDate" class="form-control" />
+                <span asp-validation-for="JoinedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="control-label"></label>
+                <input asp-for="ContactNo" class="form-control" />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+
+    GenerateEmployeeID();
+
+    function GenerateEmployeeID() {
+        debugger;
+        $.ajax({
+            type: 'GET',
+            url: '/Employees/GenerateEmployeeID',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                console.log(result);
+                alert(result)
+                if (result == null) {
+
+                    var _Id = result.Id + 1;
+
+                    var empId = "00" + _Id
+
+                    $('#Id').val(empId);
+
+                }
+
+            },
+            error: function (result) {
+                alert(result);
+            }
+        });
+    }
+</script>
