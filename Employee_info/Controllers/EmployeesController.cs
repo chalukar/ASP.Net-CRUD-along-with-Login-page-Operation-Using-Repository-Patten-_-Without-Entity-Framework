@@ -50,7 +50,7 @@ namespace Employee_info.Controllers
                 CityId = addEmployeeDTO.CityId,
                 Age= addEmployeeDTO.Age,
                 Sex = addEmployeeDTO.Sex,
-                JoinedDate= addEmployeeDTO.JoinedDate,
+                JoinedDate= DateTime.Now,
                 ContactNo= addEmployeeDTO.ContactNo,
             };
 

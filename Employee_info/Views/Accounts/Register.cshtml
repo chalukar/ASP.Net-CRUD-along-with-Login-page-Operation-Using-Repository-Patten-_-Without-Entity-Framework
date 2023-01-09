@@ -10,8 +10,9 @@
         <div class="col-6 offset-3">
             <div class="text-center">
                 <h1 class="text-info">User Registration</h1>
+                <a class="text-light btn btn-primary font-weight-bold" asp-action="Login" asp-contoller="Accounts">Sign Up </a>
             </div>
-            <h6 class="text-success text-center">@TempData["errorMessage"]</h6>
+            <h6 class="text-danger text-center">@TempData["errorMessage"]</h6>
             <h6 class="text-success text-center">@TempData["successMessage"]</h6>
             <form method="post" asp-action="Register">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>

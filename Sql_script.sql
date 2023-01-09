@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[City](
 
 CREATE TABLE [dbo].[Employee](
 	[Id] [nvarchar](20) NOT NULL,
-	[UserName] [nvarchar](10) NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
 	[CityId] [Int] FOREIGN KEY REFERENCES [City](Id) NOT NULL,
 	[Age] [int] NOT NULL,
 	[Sex] [char](1) NOT NULL,

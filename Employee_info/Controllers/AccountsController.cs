@@ -35,7 +35,7 @@ namespace Employee_info.Controllers
         public async Task<IActionResult> Register(Models.DTO.RegisterDTO addRegister) 
         {
             var ExsitsUser = await _userRepository.GetUser(addRegister.UserName);
-            if(ExsitsUser.UserName != addRegister.UserName)
+            if(ExsitsUser == null)
             {
                 if (addRegister.Password == addRegister.ConfirmPassword)
                 {
@@ -47,12 +47,12 @@ namespace Employee_info.Controllers
                     };
 
                     await _userRepository.RegisterUser(user);
-                    return View("RegisterSuccessfull");
+                    return View("successfullyRegistration");
 
                 }
                 else
                 {
-                    TempData["errorMessage"] = "Error";
+                    TempData["errorMessage"] = "Password and Confirm Password does not match";
                     return View(addRegister);
                 }
             }
@@ -82,7 +82,7 @@ namespace Employee_info.Controllers
         public async Task<IActionResult> Login(LoginDTO login)
         {
             var user = await _userRepository.GetUser(login.UserName);
-            if(user != null)
+            if (user != null)
             {
                 bool isValid =(user.UserName == login.UserName && DecryptPassword(user.Password) == login.Password);
                 if(isValid)
@@ -94,18 +94,24 @@ namespace Employee_info.Controllers
                     HttpContext.Session.SetString("UserName", login.UserName);
                     if(user.RoleId == 1)
                     {
+                        //Admin
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
+                        //User
                         return RedirectToAction("Index", "Employees");
                     }
                    
                 }
                 else
                 {
-                    TempData["errorMessage"] = "Invalid Password";
+                    TempData["errorMessage"] = "Invalid User Name or Password";
                 }
+            }
+            else
+            {
+                TempData["errorMessage"] = "Invalid User Name";
             }
 
             return View();

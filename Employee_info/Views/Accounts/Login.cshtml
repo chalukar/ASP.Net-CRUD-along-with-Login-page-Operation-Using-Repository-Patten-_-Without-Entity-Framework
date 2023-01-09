@@ -14,6 +14,7 @@
             <a class="text-light btn btn-primary font-weight-bold" asp-action="Register" asp-contoller="Accounts">Sign In </a>
         </div>
         <div class="col-md-4 offset-4">
+            <h6 class="text-danger text-center" style="color:red">@TempData["errorMessage"]</h6>
             <form method="post" asp-action="Login">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">

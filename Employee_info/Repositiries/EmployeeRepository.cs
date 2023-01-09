@@ -17,7 +17,8 @@ namespace Employee_info.Repositiries
         }
         public async Task<IEnumerable<Employee>> GetEmplyee()
         {
-            var query = @"SELECT * FROM Employee";
+            var query = @"select e.Id,e.UserName,e.CityId,e.Age,e.Sex,e.JoinedDate,e.ContactNo from employee e";
+                //@"select e.Id,e.UserName,c.CityName,e.Age,e.Sex,e.JoinedDate,e.ContactNo from employee e inner join city c on c.Id = e.CityId";
 
             using (var connection = _context.CreateConnection())
             {
